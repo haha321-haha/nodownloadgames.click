@@ -47,4 +47,4 @@ NoDownloadGames.click 是一个提供免费、无需下载的浏览器在线游�
 本项目中的游戏代码基于各自的开源许可证。网站设计和布局版权归 NoDownloadGames.click 所有。
 
 ---
-&copy; 2023 NoDownloadGames.click. 保留所有权利。 
+&copy; 2025 NoDownloadGames.click. 保留所有权利。 
