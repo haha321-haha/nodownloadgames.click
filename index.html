@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instant Play Zone | Free Casual Games Online</title>
-    <link rel="canonical" href="https://instantplayzone.com/games/candy-crush" />
-    <meta name="description" content="Play the best casual games online for free. No downloads required, just instant fun across all devices!">
+    <title>NoDownloadGames.click - 免下载在线游戏平台</title>
+    <meta name="description" content="无需下载，直接在浏览器中玩各种休闲游戏。包括拼图游戏、益智游戏、动作游戏和卡牌游戏等。完全免费，随时随地畅玩！">
     <style>
         :root {
             --apple-blue: #007AFF;
@@ -18,294 +17,329 @@
             --apple-dark-gray: #1C1C1E;
             --page-padding: max(5vw, 1rem);
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
-
+        
         body {
             background-color: var(--apple-light-gray);
             color: var(--apple-dark-gray);
             line-height: 1.6;
         }
-
+        
         header {
-            background-color: white;
-            padding: calc(var(--page-padding) * 0.8) var(--page-padding);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            background-color: var(--apple-blue);
+            color: white;
+            padding: 1rem var(--page-padding);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
-        .logo {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--apple-blue);
-        }
-
-        .menu {
+        
+        nav ul {
             display: flex;
-            gap: 1.5rem;
             list-style: none;
         }
-
-        .menu a {
-            text-decoration: none;
-            color: var(--apple-dark-gray);
-            font-weight: 500;
-            transition: color 0.3s;
+        
+        nav ul li {
+            margin-left: 1.5rem;
         }
-
-        .menu a:hover {
-            color: var(--apple-blue);
-        }
-
-        .hero {
-            padding: calc(var(--page-padding) * 2) var(--page-padding);
-            text-align: center;
-            background: linear-gradient(135deg, var(--apple-blue) 0%, var(--apple-purple) 100%);
+        
+        nav a {
             color: white;
+            text-decoration: none;
+            font-weight: 500;
         }
-
-        h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
+        
+        nav a:hover {
+            text-decoration: underline;
+        }
+        
+        .hero {
+            background-image: linear-gradient(45deg, var(--apple-blue), var(--apple-purple));
+            color: white;
+            padding: 4rem var(--page-padding);
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
             margin-bottom: 1rem;
-            font-weight: 800;
         }
-
+        
         .hero p {
-            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-size: 1.2rem;
             max-width: 800px;
             margin: 0 auto 2rem;
-            opacity: 0.9;
         }
-
-        .cta-button {
+        
+        .hero-btn {
             display: inline-block;
             background-color: white;
             color: var(--apple-blue);
-            padding: 0.75rem 2rem;
+            padding: 0.8rem 2rem;
             border-radius: 50px;
             font-weight: 600;
             text-decoration: none;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.2s;
         }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        
+        .hero-btn:hover {
+            transform: scale(1.05);
         }
-
-        main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: var(--page-padding);
+        
+        section {
+            padding: 4rem var(--page-padding);
         }
-
-        h2 {
-            font-size: 1.75rem;
-            margin: 2rem 0 1rem;
-            color: var(--apple-blue);
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
         }
-
-        .game-container {
-            background-color: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            margin: 2rem 0;
-        }
-
-        .game-frame {
-            width: 100%;
-            height: 600px;
-            border: none;
-        }
-
-        @media (max-width: 768px) {
-            .game-frame {
-                height: 450px;
-            }
-        }
-
-        .game-info {
-            padding: 1.5rem;
-        }
-
-        .game-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .game-description {
-            color: var(--apple-gray);
-            margin-bottom: 1rem;
-        }
-
-        .game-stats {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .stat {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .stat-icon {
-            color: var(--apple-blue);
-        }
-
-        .game-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .tag {
-            background-color: var(--apple-light-gray);
-            padding: 0.25rem 0.75rem;
-            border-radius: 50px;
-            font-size: 0.875rem;
-            color: var(--apple-gray);
-        }
-
-        .recommended-games {
+        
+        .games-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-
+        
         .game-card {
             background-color: white;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             transition: transform 0.3s, box-shadow 0.3s;
         }
-
+        
         .game-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
-
-        .game-thumb {
+        
+        .game-img {
+            width: 100%;
             height: 150px;
-            background-color: var(--apple-blue);
-            background-image: linear-gradient(45deg, var(--apple-blue), var(--apple-purple));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 1.25rem;
+            object-fit: cover;
         }
-
-        .card-info {
-            padding: 1rem;
+        
+        .game-info {
+            padding: 1.5rem;
         }
-
-        .card-info h3 {
-            font-size: 1.25rem;
+        
+        .game-title {
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
+            color: var(--apple-dark-gray);
         }
-
-        footer {
-            background-color: var(--apple-dark-gray);
+        
+        .game-description {
+            color: var(--apple-gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .play-btn {
+            display: inline-block;
+            background-color: var(--apple-blue);
             color: white;
-            padding: calc(var(--page-padding) * 1.5) var(--page-padding);
-            margin-top: 3rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background-color 0.2s;
         }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        
+        .play-btn:hover {
+            background-color: #0066CC;
+        }
+        
+        .categories-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: center;
             gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-
-        .footer-col {
-            flex: 1;
-            min-width: 200px;
+        
+        .category-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 260px;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-
-        .footer-col h4 {
-            font-size: 1.25rem;
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .category-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        
+        .category-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .category-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--apple-dark-gray);
+        }
+        
+        .category-description {
+            color: var(--apple-gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .explore-btn {
+            display: inline-block;
+            background-color: var(--apple-green);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+        
+        .explore-btn:hover {
+            background-color: #30B650;
+        }
+        
+        .about-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about-text {
+            margin-bottom: 2rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
             margin-bottom: 1rem;
             color: var(--apple-blue);
         }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
+        
+        .feature-title {
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
         }
-
-        .footer-links a {
-            color: var(--apple-light-gray);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: var(--apple-blue);
-        }
-
-        .copyright {
-            text-align: center;
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        
+        .feature-description {
             color: var(--apple-gray);
-            font-size: 0.875rem;
+            font-size: 0.9rem;
         }
-
-        .mobile-menu-button {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--apple-dark-gray);
+        
+        .cta {
+            background-image: linear-gradient(45deg, var(--apple-green), var(--apple-blue));
+            color: white;
+            padding: 4rem var(--page-padding);
+            text-align: center;
         }
-
+        
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+        }
+        
+        footer {
+            background-color: var(--apple-dark-gray);
+            color: white;
+            padding: 2rem var(--page-padding);
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            font-size: 0.8rem;
+            color: var(--apple-gray);
+            margin-top: 1rem;
+        }
+        
         @media (max-width: 768px) {
-            .menu {
+            nav ul {
                 display: none;
             }
             
-            .mobile-menu-button {
-                display: block;
+            .hero h1 {
+                font-size: 2rem;
             }
             
-            .menu.active {
-                display: flex;
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .categories-container {
                 flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background-color: white;
-                padding: 1rem;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                align-items: center;
             }
         }
     </style>
@@ -313,149 +347,174 @@
 <body>
     <header>
         <nav>
-            <div class="logo">InstantPlayZone</div>
-            <button class="mobile-menu-button">≡</button>
-            <ul class="menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Categories</a></li>
-                <li><a href="#">Top Games</a></li>
-                <li><a href="#">New Releases</a></li>
-                <li><a href="#">About</a></li>
+            <div class="logo">NoDownloadGames</div>
+            <ul>
+                <li><a href="#popular">热门游戏</a></li>
+                <li><a href="#categories">游戏分类</a></li>
+                <li><a href="#about">关于我们</a></li>
+                <li><a href="contact.html">联系我们</a></li>
             </ul>
         </nav>
     </header>
     
-    <section class="hero">
-        <h1>Play Casual Games Instantly</h1>
-        <p>No downloads, no waiting - just instant fun at your fingertips. Dive into our collection of the best casual games playable directly in your browser.</p>
-        <a href="#featured-game" class="cta-button">Play Now</a>
-    </section>
+    <div class="hero">
+        <h1>免下载，即刻游戏</h1>
+        <p>无需下载任何应用程序，直接在浏览器中体验各种精彩休闲游戏。从经典的益智游戏到刺激的动作游戏，我们应有尽有。</p>
+        <a href="#popular" class="hero-btn">立即开始</a>
+    </div>
     
-    <main>
-        <section id="featured-game">
-            <h2>Featured Game: Candy Crush Saga</h2>
-            <div class="game-container">
-                <iframe class="game-frame" src="/api/placeholder/800/600" alt="placeholder"></iframe>
+    <section id="popular">
+        <h2 class="section-title">热门游戏</h2>
+        <div class="games-grid">
+            <div class="game-card">
+                <img src="images/game-2048.jpg" alt="2048游戏" class="game-img">
                 <div class="game-info">
-                    <h3>Candy Crush Saga</h3>
-                    <p class="game-description">Swap and match your way through hundreds of levels in this delicious puzzle adventure.</p>
-                    
-                    <div class="game-stats">
-                        <div class="stat">
-                            <span class="stat-icon">👍</span>
-                            <span>98% (2.3K ratings)</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-icon">👁️</span>
-                            <span>5.2M plays</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-icon">⏱️</span>
-                            <span>5-10 min per level</span>
-                        </div>
-                    </div>
-                    
-                    <div class="game-tags">
-                        <span class="tag">Match-3</span>
-                        <span class="tag">Puzzle</span>
-                        <span class="tag">Colorful</span>
-                        <span class="tag">Strategy</span>
-                        <span class="tag">Sweet</span>
-                    </div>
+                    <h3 class="game-title">2048</h3>
+                    <p class="game-description">合并相同数字的方块，尝试达到2048！简单但富有挑战性的数字拼图游戏。</p>
+                    <a href="games/2048.html" class="play-btn">开始游戏</a>
                 </div>
             </div>
             
-            <div class="game-details">
-                <h2>About Candy Crush Saga</h2>
-                <p>Candy Crush Saga is one of the most popular match-3 puzzle games of all time. With its colorful candy-themed graphics and progressively challenging levels, it's captured the hearts of casual gamers worldwide.</p>
-                <p>The game is simple to learn but difficult to master, making it perfect for quick gaming sessions during breaks or commutes. Each level presents unique challenges and obstacles that require both strategy and a bit of luck to overcome.</p>
-                
-                <h2>How to Play</h2>
-                <p>Swap adjacent candies to make matches of three or more identical candies. Complete the objectives shown at the beginning of each level to progress. Special candies can be created by matching four or more candies in specific patterns, giving you powerful abilities to clear more candies at once.</p>
-                
-                <h2>Why We Love It</h2>
-                <p>Candy Crush Saga strikes the perfect balance between accessibility and challenge. Its bright visuals and satisfying sound effects create an engaging sensory experience, while the increasing difficulty keeps players coming back for more. The game is constantly updated with new levels, ensuring there's always something fresh to experience.</p>
+            <div class="game-card">
+                <img src="images/game-tetris.jpg" alt="俄罗斯方块" class="game-img">
+                <div class="game-info">
+                    <h3 class="game-title">俄罗斯方块</h3>
+                    <p class="game-description">经典的方块消除游戏，旋转和移动不同形状的方块，尽可能多地填满行数。</p>
+                    <a href="games/tetris.html" class="play-btn">开始游戏</a>
+                </div>
             </div>
-        </section>
-        
-        <section>
-            <h2>More Games You'll Love</h2>
-            <div class="recommended-games">
-                <a href="#" class="game-card">
-                    <div class="game-thumb" style="background-image: linear-gradient(45deg, #FF2D55, #FF9500);">Subway Surfers</div>
-                    <div class="card-info">
-                        <h3>Subway Surfers</h3>
-                        <p>Dash as fast as you can through the subway and dodge oncoming trains!</p>
-                    </div>
-                </a>
-                
-                <a href="#" class="game-card">
-                    <div class="game-thumb" style="background-image: linear-gradient(45deg, #34C759, #007AFF);">Words With Friends</div>
-                    <div class="card-info">
-                        <h3>Words With Friends</h3>
-                        <p>Challenge your vocabulary in this addictive word-building puzzle game.</p>
-                    </div>
-                </a>
-                
-                <a href="#" class="game-card">
-                    <div class="game-thumb" style="background-image: linear-gradient(45deg, #AF52DE, #5E5CE6);">Bejeweled</div>
-                    <div class="card-info">
-                        <h3>Bejeweled</h3>
-                        <p>Match sparkling gems in this classic puzzle game that started it all.</p>
-                    </div>
-                </a>
-                
-                <a href="#" class="game-card">
-                    <div class="game-thumb" style="background-image: linear-gradient(45deg, #FFCC00, #FF9500);">Fruit Ninja</div>
-                    <div class="card-info">
-                        <h3>Fruit Ninja</h3>
-                        <p>Slice fruit, avoid bombs, and become the ultimate Fruit Ninja!</p>
-                    </div>
-                </a>
+            
+            <div class="game-card">
+                <img src="images/game-snake.jpg" alt="贪吃蛇" class="game-img">
+                <div class="game-info">
+                    <h3 class="game-title">贪吃蛇</h3>
+                    <p class="game-description">控制蛇移动，吃掉食物，让它不断成长，但要避免撞到墙壁或自己的身体。</p>
+                    <a href="games/snake.html" class="play-btn">开始游戏</a>
+                </div>
             </div>
-        </section>
-    </main>
+            
+            <div class="game-card">
+                <img src="images/game-memory.jpg" alt="记忆游戏" class="game-img">
+                <div class="game-info">
+                    <h3 class="game-title">记忆游戏</h3>
+                    <p class="game-description">翻转卡片，找出所有匹配的对子。考验你的记忆力和注意力的经典游戏。</p>
+                    <a href="games/memory.html" class="play-btn">开始游戏</a>
+                </div>
+            </div>
+            
+            <div class="game-card">
+                <img src="images/game-candy-crush.jpg" alt="糖果消除" class="game-img">
+                <div class="game-info">
+                    <h3 class="game-title">糖果消除</h3>
+                    <p class="game-description">交换相邻的糖果，匹配三个或更多相同颜色的糖果来消除它们。</p>
+                    <a href="games/candy-crush.html" class="play-btn">开始游戏</a>
+                </div>
+            </div>
+            
+            <div class="game-card">
+                <img src="images/game-more.jpg" alt="更多游戏" class="game-img">
+                <div class="game-info">
+                    <h3 class="game-title">更多游戏</h3>
+                    <p class="game-description">我们正在不断添加新游戏！关注这个空间，定期查看最新的游戏内容。</p>
+                    <a href="#categories" class="play-btn">浏览分类</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="categories">
+        <h2 class="section-title">游戏分类</h2>
+        <div class="categories-container">
+            <div class="category-card">
+                <img src="images/category-puzzle.jpg" alt="益智游戏" class="category-img">
+                <div class="category-info">
+                    <h3 class="category-title">益智游戏</h3>
+                    <p class="category-description">锻炼你的大脑，解决谜题，挑战你的思维能力。</p>
+                    <a href="#" class="explore-btn">探索分类</a>
+                </div>
+            </div>
+            
+            <div class="category-card">
+                <img src="images/category-arcade.jpg" alt="街机游戏" class="category-img">
+                <div class="category-info">
+                    <h3 class="category-title">街机游戏</h3>
+                    <p class="category-description">经典的街机风格游戏，简单易玩，富有挑战性。</p>
+                    <a href="#" class="explore-btn">探索分类</a>
+                </div>
+            </div>
+            
+            <div class="category-card">
+                <img src="images/category-card.jpg" alt="卡牌游戏" class="category-img">
+                <div class="category-info">
+                    <h3 class="category-title">卡牌游戏</h3>
+                    <p class="category-description">各种卡牌游戏，从纸牌接龙到记忆配对游戏。</p>
+                    <a href="#" class="explore-btn">探索分类</a>
+                </div>
+            </div>
+            
+            <div class="category-card">
+                <img src="images/category-action.jpg" alt="动作游戏" class="category-img">
+                <div class="category-info">
+                    <h3 class="category-title">动作游戏</h3>
+                    <p class="category-description">测试你的反应速度和协调能力的快节奏游戏。</p>
+                    <a href="#" class="explore-btn">探索分类</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about">
+        <h2 class="section-title">关于 NoDownloadGames</h2>
+        <div class="about-container">
+            <p class="about-text">我们是一个致力于提供高质量、免费、无需下载的在线游戏平台。我们相信，游戏应该随时随地可以玩，无需复杂的安装步骤或下载。所有游戏都经过精心设计，确保在各种设备上流畅运行，包括手机、平板和电脑。</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💻</div>
+                    <h3 class="feature-title">免安装</h3>
+                    <p class="feature-description">所有游戏都直接在浏览器中运行，无需下载或安装任何应用。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3 class="feature-title">多样化游戏</h3>
+                    <p class="feature-description">从经典的益智游戏到刺激的动作游戏，满足各种游戏偏好。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">多设备兼容</h3>
+                    <p class="feature-description">游戏针对不同设备进行了优化，在手机、平板和电脑上都能完美运行。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🆓</div>
+                    <h3 class="feature-title">完全免费</h3>
+                    <p class="feature-description">所有游戏均可免费玩，没有隐藏费用，没有烦人的广告。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="cta">
+        <h2>准备好开始游戏了吗？</h2>
+        <p>选择你喜欢的游戏，立即开始体验乐趣。无需下载，即刻开玩！</p>
+        <a href="#popular" class="hero-btn">浏览游戏</a>
+    </div>
     
     <footer>
         <div class="footer-content">
-            <div class="footer-col">
-                <h4>InstantPlayZone</h4>
-                <p>The best destination for free casual games that you can play instantly without downloads or installations.</p>
+            <div class="logo" style="margin-bottom: 1rem;">NoDownloadGames</div>
+            <div class="footer-links">
+                <a href="#popular">热门游戏</a>
+                <a href="#categories">游戏分类</a>
+                <a href="#about">关于我们</a>
+                <a href="privacy.html">隐私政策</a>
+                <a href="terms.html">使用条款</a>
+                <a href="contact.html">联系我们</a>
             </div>
-            
-            <div class="footer-col">
-                <h4>Categories</h4>
-                <ul class="footer-links">
-                    <li><a href="#">Puzzle Games</a></li>
-                    <li><a href="#">Arcade Games</a></li>
-                    <li><a href="#">Word Games</a></li>
-                    <li><a href="#">Action Games</a></li>
-                    <li><a href="#">Strategy Games</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <ul class="footer-links">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">FAQ</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="copyright">
-            <p>&copy; 2025 InstantPlayZone. All rights reserved.</p>
+            <p class="copyright">© 2023 NoDownloadGames.click. 保留所有权利。</p>
         </div>
     </footer>
-    
-    <script>
-        // Simple mobile menu toggle
-        document.querySelector('.mobile-menu-button').addEventListener('click', function() {
-            document.querySelector('.menu').classList.toggle('active');
-        });
-    </script>
 </body>
-</html>
+</html> 
