@@ -1,0 +1,21 @@
+# 忽略Python相关文件
+__pycache__/
+*.py
+*.pyc
+*.pyo
+venv/
+Spark-TTS/
+Spark_TTS
+.DS_Store
+
+# 忽略临时目录和输出
+temp_output/
+output/
+example/
+
+# 忽略IDE相关文件
+.vscode/
+.idea/
+
+# 只保留游戏网站相关文件，忽略TTS项目文件
+安装指南.md 
