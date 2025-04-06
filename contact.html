@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 | NoDownloadGames</title>
+    <link rel="canonical" href="https://nodownloadgames.click/contact.html" />
+    <meta name="description" content="联系NoDownloadGames团队，分享您的反馈、建议或问题。">
+    <style>
+        :root {
+            --apple-blue: #007AFF;
+            --apple-green: #34C759;
+            --apple-pink: #FF2D55;
+            --apple-purple: #AF52DE;
+            --apple-yellow: #FFCC00;
+            --apple-gray: #8E8E93;
+            --apple-light-gray: #F2F2F7;
+            --apple-dark-gray: #1C1C1E;
+            --page-padding: max(5vw, 1rem);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            background-color: var(--apple-light-gray);
+            color: var(--apple-dark-gray);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--apple-blue);
+            color: white;
+            padding: 1rem var(--page-padding);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            text-decoration: underline;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--apple-blue), var(--apple-purple));
+            color: white;
+            padding: 3rem var(--page-padding);
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-description {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .content-container {
+            padding: 3rem var(--page-padding);
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            margin-top: -2rem;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .contact-info {
+            padding-right: 2rem;
+        }
+        
+        .contact-info h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--apple-dark-gray);
+        }
+        
+        .contact-info p {
+            margin-bottom: 1.5rem;
+            color: var(--apple-dark-gray);
+        }
+        
+        .contact-method {
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-method h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--apple-dark-gray);
+        }
+        
+        .contact-method p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-form h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--apple-dark-gray);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--apple-dark-gray);
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--apple-gray);
+            border-radius: 8px;
+            font-size: 1rem;
+            color: var(--apple-dark-gray);
+            background-color: var(--apple-light-gray);
+        }
+        
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--apple-blue);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #0066CC;
+        }
+        
+        .social-links {
+            margin-top: 2rem;
+        }
+        
+        .social-links h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--apple-dark-gray);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: var(--apple-blue);
+            border-radius: 50%;
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+            background-color: #0066CC;
+        }
+        
+        footer {
+            background-color: var(--apple-dark-gray);
+            color: white;
+            padding: 2rem var(--page-padding);
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            font-size: 0.8rem;
+            color: var(--apple-gray);
+            margin-top: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .page-description {
+                font-size: 1rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+            
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">NoDownloadGames</div>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="index.html#popular">热门游戏</a></li>
+                <li><a href="index.html#categories">游戏分类</a></li>
+                <li><a href="index.html#about">关于我们</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="page-header">
+        <h1 class="page-title">联系我们</h1>
+        <p class="page-description">有问题、建议或反馈？我们期待听到您的声音！</p>
+    </div>
+    
+    <div class="content-container">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2>与我们取得联系</h2>
+                <p>无论您有问题、建议、反馈，还是想要报告问题，我们都非常乐意听取您的意见。请通过以下方式联系我们：</p>
+                
+                <div class="contact-method">
+                    <h3>电子邮件</h3>
+                    <p>一般咨询：<a href="mailto:info@nodownloadgames.click">info@nodownloadgames.click</a></p>
+                    <p>技术支持：<a href="mailto:support@nodownloadgames.click">support@nodownloadgames.click</a></p>
+                    <p>意见反馈：<a href="mailto:feedback@nodownloadgames.click">feedback@nodownloadgames.click</a></p>
+                </div>
+                
+                <div class="contact-method">
+                    <h3>响应时间</h3>
+                    <p>我们通常会在1-2个工作日内回复您的邮件。如果您有紧急问题，请在邮件主题中注明"紧急"。</p>
+                </div>
+                
+                <div class="social-links">
+                    <h3>关注我们</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">t</a>
+                        <a href="#" class="social-icon">in</a>
+                        <a href="#" class="social-icon">ig</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h2>留言表单</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">您的姓名</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">电子邮箱</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">主题</label>
+                        <select id="subject" name="subject">
+                            <option value="general">一般咨询</option>
+                            <option value="technical">技术支持</option>
+                            <option value="feedback">意见反馈</option>
+                            <option value="bug">报告问题</option>
+                            <option value="other">其他</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">您的留言</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">发送留言</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="logo" style="margin-bottom: 1rem;">NoDownloadGames</div>
+            <div class="footer-links">
+                <a href="index.html">首页</a>
+                <a href="index.html#popular">热门游戏</a>
+                <a href="index.html#categories">游戏分类</a>
+                <a href="index.html#about">关于我们</a>
+                <a href="privacy.html">隐私政策</a>
+                <a href="terms.html">使用条款</a>
+                <a href="contact.html">联系我们</a>
+            </div>
+            <p class="copyright">© 2023 NoDownloadGames.click. 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // 在这里可以添加表单验证和提交逻辑
+            
+            // 显示提交成功信息
+            alert('感谢您的留言！我们会尽快回复您。');
+            
+            // 重置表单
+            this.reset();
+        });
+    </script>
+</body>
+</html> 
