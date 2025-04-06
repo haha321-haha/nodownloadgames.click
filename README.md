@@ -34,7 +34,7 @@ NoDownloadGames.click 是一个提供免费、无需下载的浏览器在线游�
 
 如果您有任何问题、建议或反馈，欢迎联系我们:
 
-- 电子邮件: [info@nodownloadgames.click](mailto:info@nodownloadgames.click)
+- 电子邮件: [dutinglove@gmail.com](mailto:info@nodownloadgames.click)
 - 网站: [联系页面](https://nodownloadgames.click/contact.html)
 
 ## 隐私和条款
