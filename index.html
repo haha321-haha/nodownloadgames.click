@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoDownloadGames.click - Play Games Online Without Downloads</title>
+    <meta name="description" content="Play various casual games directly in your browser without downloads. Includes puzzle games, brain teasers, action games, and card games. Completely free, play anytime, anywhere!">
+    <link rel="canonical" href="https://nodownloadgames.click/" />
+    <link rel="stylesheet" href="css/language-switcher.css">
+    <style>
+        :root {
+            --apple-blue: #007AFF;
+            --apple-green: #34C759;
+            --apple-pink: #FF2D55;
+            --apple-purple: #AF52DE;
+            --apple-yellow: #FFCC00;
+            --apple-gray: #8E8E93;
+            --apple-light-gray: #F2F2F7;
+            --apple-dark-gray: #1C1C1E;
+            --page-padding: max(5vw, 1rem);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            background-color: var(--apple-light-gray);
+            color: var(--apple-dark-gray);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--apple-blue);
+            color: white;
+            padding: 1rem var(--page-padding);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            text-decoration: underline;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .hero {
+            background-image: linear-gradient(45deg, var(--apple-blue), var(--apple-purple));
+            color: white;
+            padding: 4rem var(--page-padding);
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .hero-btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--apple-blue);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+        
+        .hero-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        section {
+            padding: 4rem var(--page-padding);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .game-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .game-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        
+        .game-info {
+            padding: 1.5rem;
+        }
+        
+        .game-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--apple-dark-gray);
+        }
+        
+        .game-description {
+            color: var(--apple-gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .play-btn {
+            display: inline-block;
+            background-color: var(--apple-blue);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+        
+        .play-btn:hover {
+            background-color: #0066CC;
+        }
+        
+        .categories-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .category-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 260px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .category-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-text h2 {
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        .about-text h3 {
+            margin: 1.5rem 0 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 1rem;
+        }
+        
+        .about-text ul {
+            list-style-position: inside;
+            margin-bottom: 1rem;
+        }
+        
+        .about-text li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .cta-section {
+            background-image: linear-gradient(45deg, var(--apple-green), var(--apple-blue));
+            color: white;
+            padding: 4rem var(--page-padding);
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-content p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        footer {
+            background-color: var(--apple-dark-gray);
+            color: white;
+            padding: 2rem var(--page-padding);
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            font-size: 0.8rem;
+            color: var(--apple-gray);
+            margin-top: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 70%;
+                height: 100vh;
+                background-color: var(--apple-dark-gray);
+                flex-direction: column;
+                padding: 2rem;
+                transition: left 0.3s ease;
+                z-index: 1000;
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 1rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .about-container {
+                flex-direction: column;
+            }
+            
+            .about-text, .about-image {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">NoDownloadGames</a>
+            <button class="mobile-menu-btn">☰</button>
+            <ul id="menu">
+                <li><a href="index.html" data-i18n="home">Home</a></li>
+                <li><a href="#popular-games" data-i18n="popular_games">Popular Games</a></li>
+                <li><a href="#categories" data-i18n="game_categories">Game Categories</a></li>
+                <li><a href="about.html" data-i18n="about_us">About Us</a></li>
+                <li class="language-switcher">
+                    <button class="language-btn" data-lang="en">EN</button>
+                    <button class="language-btn" data-lang="zh">中文</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="hero">
+        <h1 data-i18n="hero_title">免下载，即刻游戏</h1>
+        <p data-i18n="hero_description">无需下载任何应用程序，直接在浏览器中体验各种精彩休闲游戏。从经典的益智游戏到刺激的动作游戏，我们应有尽有。</p>
+        <a href="#popular-games" class="hero-btn" data-i18n="play_now">立即开始</a>
+    </div>
+    
+    <section id="popular-games">
+        <h2 class="section-title" data-i18n="popular_games_section">Popular Games</h2>
+        <div class="games-grid">
+            <div class="game-card">
+                <img src="images/game-2048.jpg" alt="2048 Game" class="game-img">
+                <div class="game-info">
+                    <h3 class="game-title">2048</h3>
+                    <p class="game-description" data-i18n="2048_card_desc">Slide blocks to merge same numbers, see if you can reach 2048!</p>
+                    <a href="games/2048.html" class="play-btn" data-i18n="play_now">Play Now</a>
+                </div>
+            </div>
+            <div class="game-card">
+                <img src="images/game-tetris.jpg" alt="Tetris Game" class="game-img">
+                <div class="game-info">
+                    <h3 class="game-title" data-i18n="tetris_title">Tetris</h3>
+                    <p class="game-description" data-i18n="tetris_card_desc">Classic block-clearing game. Rotate and move blocks to complete rows.</p>
+                    <a href="games/tetris.html" class="play-btn" data-i18n="play_now">Play Now</a>
+                </div>
+            </div>
+            <div class="game-card">
+                <img src="images/game-snake.jpg" alt="Snake Game" class="game-img">
+                <div class="game-info">
+                    <h3 class="game-title">Snake</h3>
+                    <p class="game-description" data-i18n="snake_card_desc">Guide the snake to eat apples but don't hit the walls or yourself!</p>
+                    <a href="games/snake.html" class="play-btn" data-i18n="play_now">Play Now</a>
+                </div>
+            </div>
+            <div class="game-card">
+                <img src="images/game-memory.jpg" alt="Memory Game" class="game-img">
+                <div class="game-info">
+                    <h3 class="game-title" data-i18n="memory_game_title">Memory Game</h3>
+                    <p class="game-description" data-i18n="memory_card_desc">Flip cards to find pairs, train your memory.</p>
+                    <a href="games/memory.html" class="play-btn" data-i18n="play_now">Play Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="categories">
+        <h2 class="section-title" data-i18n="categories_section">Game Categories</h2>
+        <div class="categories-container">
+            <div class="category-card">
+                <img src="images/category-puzzle.jpg" alt="Puzzle Games" class="category-img">
+                <div class="game-info">
+                    <h3 class="game-title" data-i18n="puzzle_games_title">Puzzle Games</h3>
+                    <p class="game-description">Challenge your brain with various puzzles and logic games.</p>
+                    <a href="categories/puzzle.html" class="play-btn" data-i18n="browse_category">Browse Category</a>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="images/category-arcade.jpg" alt="Arcade Games" class="category-img">
+                <div class="game-info">
+                    <h3 class="game-title">Arcade Games</h3>
+                    <p class="game-description">Classic arcade-style games for quick fun and excitement.</p>
+                    <a href="categories/arcade.html" class="play-btn" data-i18n="browse_category">Browse Category</a>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="images/category-card.jpg" alt="Card Games" class="category-img">
+                <div class="game-info">
+                    <h3 class="game-title">Card Games</h3>
+                    <p class="game-description">Play classic card games directly in your browser.</p>
+                    <a href="categories/card.html" class="play-btn" data-i18n="browse_category">Browse Category</a>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="images/category-action.jpg" alt="Action Games" class="category-img">
+                <div class="game-info">
+                    <h3 class="game-title">Action Games</h3>
+                    <p class="game-description">Fast-paced games that test your reflexes and skills.</p>
+                    <a href="categories/action.html" class="play-btn" data-i18n="browse_category">Browse Category</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about">
+        <div class="about-container">
+            <div class="about-text">
+                <h2 data-i18n="about_section">About Us</h2>
+                <p data-i18n="about_desc">NoDownloadGames.click offers a variety of free online games that you can play directly in your browser without downloading anything. We carefully select high-quality games across different categories to ensure you have the best gaming experience.</p>
+                <h3 data-i18n="why_us_title">Why Choose Us?</h3>
+                <ul>
+                    <li data-i18n="why_us_1">No downloads required</li>
+                    <li data-i18n="why_us_2">Free to play</li>
+                    <li data-i18n="why_us_3">Works on all devices</li>
+                    <li data-i18n="why_us_4">New games added regularly</li>
+                </ul>
+            </div>
+            <div class="about-image">
+                <img src="images/gaming.jpg" alt="Gaming on different devices" loading="lazy">
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 data-i18n="cta_title">Ready to Play?</h2>
+            <p data-i18n="cta_desc">Join thousands of players enjoying our free online games right now!</p>
+            <a href="#popular-games" class="hero-btn" data-i18n="play_now">Play Now</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="privacy.html" data-i18n="privacy_policy">Privacy Policy</a>
+                <a href="terms.html" data-i18n="terms_of_service">Terms of Service</a>
+                <a href="contact.html" data-i18n="contact_us">Contact Us</a>
+            </div>
+            <p class="copyright" data-i18n="copyright">© 2025 NoDownloadGames.click. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="js/i18n.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 移动端菜单
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const menu = document.getElementById('menu');
+            
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    menu.classList.toggle('active');
+                });
+                
+                // 点击菜单项后关闭菜单
+                const menuItems = menu.querySelectorAll('a');
+                menuItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        menu.classList.remove('active');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html> 
