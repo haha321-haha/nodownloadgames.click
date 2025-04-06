@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake | No Download Games Platform</title>
+    <link rel="canonical" href="https://nodownloadgames.click/games/snake.html" />
+    <meta name="description" content="Play Snake online without downloads! Classic Snake game where you control a snake to eat food and grow longer. Completely free, play directly in your browser!">
+    <style>
+        :root {
+            --apple-blue: #007AFF;
+            --apple-green: #34C759;
+            --apple-pink: #FF2D55;
+            --apple-purple: #AF52DE;
+            --apple-yellow: #FFCC00;
+            --apple-gray: #8E8E93;
+            --apple-light-gray: #F2F2F7;
+            --apple-dark-gray: #1C1C1E;
+            --page-padding: max(5vw, 1rem);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            background-color: var(--apple-light-gray);
+            color: var(--apple-dark-gray);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--apple-blue);
+            color: white;
+            padding: 1rem var(--page-padding);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            text-decoration: underline;
+        }
+        
+        .game-container {
+            padding: 2rem var(--page-padding);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .game-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--apple-dark-gray);
+        }
+        
+        .game-description {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: var(--apple-gray);
+        }
+        
+        .game-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .snake-container {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        #game-canvas {
+            border: 2px solid var(--apple-dark-gray);
+            background-color: black;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+        
+        .mobile-controls {
+            display: none;
+            margin-top: 1rem;
+            grid-template-columns: repeat(3, 60px);
+            grid-template-rows: repeat(2, 60px);
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .control-btn {
+            background-color: var(--apple-blue);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            font-size: 1rem;
+        }
+        
+        .control-btn:hover {
+            background-color: #0066CC;
+        }
+        
+        .mobile-btn {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(0, 122, 255, 0.8);
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .mobile-btn:active {
+            background-color: rgba(0, 122, 255, 1);
+        }
+        
+        #up-btn {
+            grid-column: 2;
+            grid-row: 1;
+        }
+        
+        #left-btn {
+            grid-column: 1;
+            grid-row: 2;
+        }
+        
+        #right-btn {
+            grid-column: 3;
+            grid-row: 2;
+        }
+        
+        #down-btn {
+            grid-column: 2;
+            grid-row: 2;
+        }
+        
+        .game-info {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 420px;
+            margin-top: 1rem;
+        }
+        
+        .score-box, .high-score-box {
+            background-color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            flex: 1;
+            margin: 0 0.5rem;
+        }
+        
+        .score-label, .high-score-label {
+            font-size: 0.9rem;
+            color: var(--apple-gray);
+        }
+        
+        .score-value, .high-score-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--apple-dark-gray);
+        }
+        
+        .game-controls {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .instructions {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .instruction-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--apple-dark-gray);
+            text-align: center;
+        }
+        
+        .instructions ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .instructions li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .game-over {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            z-index: 10;
+        }
+        
+        .game-over-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .game-over-score {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .restart-btn {
+            background-color: var(--apple-green);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            font-size: 1rem;
+        }
+        
+        .restart-btn:hover {
+            background-color: #30B650;
+        }
+        
+        footer {
+            background-color: var(--apple-dark-gray);
+            color: white;
+            padding: 2rem var(--page-padding);
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            font-size: 0.8rem;
+            color: var(--apple-gray);
+            margin-top: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .game-title {
+                font-size: 2rem;
+            }
+            
+            .mobile-controls {
+                display: grid;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .game-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">NoDownloadGames</div>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#popular">Popular Games</a></li>
+                <li><a href="../index.html#categories">Game Categories</a></li>
+                <li><a href="../index.html#about">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="game-container">
+        <h1 class="game-title">Snake</h1>
+        <p class="game-description">Control the snake to eat food and grow longer, but be careful not to hit the walls or your own body!</p>
+        
+        <div class="game-content">
+            <div class="snake-container">
+                <canvas id="game-canvas" width="400" height="400"></canvas>
+                <div class="game-info">
+                    <div class="score-box">
+                        <div class="score-label">Score</div>
+                        <div class="score-value" id="score">0</div>
+                    </div>
+                    <div class="high-score-box">
+                        <div class="high-score-label">High Score</div>
+                        <div class="high-score-value" id="high-score">0</div>
+                    </div>
+                </div>
+                <div class="game-controls">
+                    <button class="control-btn" id="start-btn">Start Game</button>
+                    <button class="control-btn" id="pause-btn">Pause</button>
+                </div>
+                <div class="mobile-controls">
+                    <button class="mobile-btn" id="up-btn">↑</button>
+                    <button class="mobile-btn" id="left-btn">←</button>
+                    <button class="mobile-btn" id="down-btn">↓</button>
+                    <button class="mobile-btn" id="right-btn">→</button>
+                </div>
+            </div>
+            
+            <div class="game-over" id="game-over">
+                <h2 class="game-over-title">Game Over</h2>
+                <p class="game-over-score">Your score: <span id="final-score">0</span></p>
+                <button class="restart-btn" id="restart-btn">Play Again</button>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h2 class="instruction-title">How to Play</h2>
+            <ul>
+                <li>Use the arrow keys to control the snake's direction (up, down, left, right)</li>
+                <li>On mobile devices, use the on-screen arrow buttons</li>
+                <li>Eat the red food to grow longer and increase your score</li>
+                <li>Avoid hitting the walls or your own body</li>
+                <li>The game gets faster as your score increases</li>
+                <li>Press the Start button to begin and the Pause button to pause the game</li>
+            </ul>
+            <p>Challenge yourself to beat your own high score! Can you become the ultimate Snake master?</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="logo" style="margin-bottom: 1rem;">NoDownloadGames</div>
+            <div class="footer-links">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#popular">Popular Games</a>
+                <a href="../index.html#categories">Game Categories</a>
+                <a href="../index.html#about">About Us</a>
+                <a href="../privacy.html">Privacy Policy</a>
+                <a href="../terms.html">Terms of Use</a>
+                <a href="../contact.html">Contact Us</a>
+            </div>
+            <p class="copyright">© 2023 NoDownloadGames.click. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Game variables
+        let canvas, ctx;
+        let snake = [];
+        let food = {};
+        let direction = 'right';
+        let nextDirection = 'right';
+        let gameRunning = false;
+        let gameSpeed = 100;
+        let score = 0;
+        let highScore = localStorage.getItem('snakeHighScore') || 0;
+        let gameLoop;
+        
+        // Grid settings
+        const gridSize = 20;
+        const gridWidth = 400 / gridSize;
+        const gridHeight = 400 / gridSize;
+        
+        // Initialize the game
+        window.onload = function() {
+            canvas = document.getElementById('game-canvas');
+            ctx = canvas.getContext('2d');
+            
+            // Display high score
+            document.getElementById('high-score').textContent = highScore;
+            
+            // Initialize Snake
+            resetGame();
+            drawEverything();
+            
+            // Event listeners
+            document.getElementById('start-btn').addEventListener('click', startGame);
+            document.getElementById('pause-btn').addEventListener('click', pauseGame);
+            document.getElementById('restart-btn').addEventListener('click', restartGame);
+            
+            // Mobile controls
+            document.getElementById('up-btn').addEventListener('click', () => setDirection('up'));
+            document.getElementById('down-btn').addEventListener('click', () => setDirection('down'));
+            document.getElementById('left-btn').addEventListener('click', () => setDirection('left'));
+            document.getElementById('right-btn').addEventListener('click', () => setDirection('right'));
+            
+            // Keyboard controls
+            document.addEventListener('keydown', handleKeyPress);
+        };
+        
+        function resetGame() {
+            // Initial snake position (center of grid)
+            snake = [
+                {x: Math.floor(gridWidth / 2), y: Math.floor(gridHeight / 2)},
+                {x: Math.floor(gridWidth / 2) - 1, y: Math.floor(gridHeight / 2)},
+                {x: Math.floor(gridWidth / 2) - 2, y: Math.floor(gridHeight / 2)}
+            ];
+            
+            // Reset direction
+            direction = 'right';
+            nextDirection = 'right';
+            
+            // Generate first food
+            generateFood();
+            
+            // Reset score
+            score = 0;
+            document.getElementById('score').textContent = score;
+            
+            // Update high score
+            document.getElementById('high-score').textContent = highScore;
+            
+            // Hide game over screen
+            document.getElementById('game-over').style.display = 'none';
+            
+            // Reset game speed
+            gameSpeed = 100;
+        }
+        
+        function startGame() {
+            if (!gameRunning) {
+                gameRunning = true;
+                gameLoop = setInterval(updateGame, gameSpeed);
+            }
+        }
+        
+        function pauseGame() {
+            if (gameRunning) {
+                gameRunning = false;
+                clearInterval(gameLoop);
+            }
+        }
+        
+        function restartGame() {
+            pauseGame();
+            resetGame();
+            startGame();
+        }
+        
+        function updateGame() {
+            // Update direction
+            direction = nextDirection;
+            
+            // Move snake (add new head)
+            const head = {x: snake[0].x, y: snake[0].y};
+            
+            switch(direction) {
+                case 'up':
+                    head.y--;
+                    break;
+                case 'down':
+                    head.y++;
+                    break;
+                case 'left':
+                    head.x--;
+                    break;
+                case 'right':
+                    head.x++;
+                    break;
+            }
+            
+            // Check collisions
+            if (checkCollision(head)) {
+                gameOver();
+                return;
+            }
+            
+            // Add new head
+            snake.unshift(head);
+            
+            // Check if food eaten
+            if (head.x === food.x && head.y === food.y) {
+                // Increase score
+                score++;
+                document.getElementById('score').textContent = score;
+                
+                // Update high score if needed
+                if (score > highScore) {
+                    highScore = score;
+                    localStorage.setItem('snakeHighScore', highScore);
+                    document.getElementById('high-score').textContent = highScore;
+                }
+                
+                // Generate new food
+                generateFood();
+                
+                // Increase speed slightly every 5 points
+                if (score % 5 === 0) {
+                    clearInterval(gameLoop);
+                    gameSpeed = Math.max(50, gameSpeed - 5);
+                    gameLoop = setInterval(updateGame, gameSpeed);
+                }
+            } else {
+                // Remove tail if no food eaten
+                snake.pop();
+            }
+            
+            // Draw everything
+            drawEverything();
+        }
+        
+        function generateFood() {
+            // Generate random position
+            let newFood;
+            let isOnSnake;
+            
+            do {
+                newFood = {
+                    x: Math.floor(Math.random() * gridWidth),
+                    y: Math.floor(Math.random() * gridHeight)
+                };
+                
+                // Check if food is on snake
+                isOnSnake = snake.some(segment => segment.x === newFood.x && segment.y === newFood.y);
+            } while (isOnSnake);
+            
+            food = newFood;
+        }
+        
+        function checkCollision(head) {
+            // Wall collision
+            if (head.x < 0 || head.x >= gridWidth || head.y < 0 || head.y >= gridHeight) {
+                return true;
+            }
+            
+            // Self collision
+            for (let i = 0; i < snake.length; i++) {
+                if (snake[i].x === head.x && snake[i].y === head.y) {
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+        
+        function gameOver() {
+            pauseGame();
+            document.getElementById('final-score').textContent = score;
+            document.getElementById('game-over').style.display = 'block';
+        }
+        
+        function drawEverything() {
+            // Clear canvas
+            ctx.fillStyle = 'black';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw snake
+            snake.forEach((segment, index) => {
+                // Head is slightly different color
+                if (index === 0) {
+                    ctx.fillStyle = '#34C759'; // Green
+                } else {
+                    ctx.fillStyle = '#30B650'; // Slightly darker green
+                }
+                
+                ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize - 1, gridSize - 1);
+            });
+            
+            // Draw food
+            ctx.fillStyle = '#FF2D55'; // Red
+            ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize - 1, gridSize - 1);
+        }
+        
+        function handleKeyPress(e) {
+            switch(e.key) {
+                case 'ArrowUp':
+                    if (direction !== 'down') setDirection('up');
+                    break;
+                case 'ArrowDown':
+                    if (direction !== 'up') setDirection('down');
+                    break;
+                case 'ArrowLeft':
+                    if (direction !== 'right') setDirection('left');
+                    break;
+                case 'ArrowRight':
+                    if (direction !== 'left') setDirection('right');
+                    break;
+                case ' ': // Space bar
+                    if (gameRunning) {
+                        pauseGame();
+                    } else {
+                        startGame();
+                    }
+                    break;
+            }
+        }
+        
+        function setDirection(newDirection) {
+            // Prevent 180-degree turns
+            if (
+                (newDirection === 'up' && direction !== 'down') ||
+                (newDirection === 'down' && direction !== 'up') ||
+                (newDirection === 'left' && direction !== 'right') ||
+                (newDirection === 'right' && direction !== 'left')
+            ) {
+                nextDirection = newDirection;
+            }
+        }
+    </script>
+</body>
+</html> 
