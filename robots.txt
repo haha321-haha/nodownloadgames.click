@@ -2,5 +2,11 @@ User-agent: *
 Allow: /
 Sitemap: https://nodownloadgames.click/sitemap.xml
 
-# 禁止爬取隐私政策等文件
-Disallow: /admin/ 
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp_output/
+Disallow: /output/
+Disallow: /.git/
+Disallow: /__pycache__/
+Disallow: /venv/ 
